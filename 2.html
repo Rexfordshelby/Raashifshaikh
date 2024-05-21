@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your App</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Black */
+            color: #fff; /* White */
+        }
+        header {
+            background-color: #6a0dad; /* Deep purple */
+            padding: 1em;
+            text-align: center;
+        }
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+        .choice {
+            display: flex;
+            justify-content: center;
+            margin-top: 2em;
+        }
+        .choice button {
+            padding: 1em;
+            margin: 0 1em;
+            background-color: #800080; /* Purple */
+            color: #fff; /* White */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        .choice button:hover {
+            background-color: #4b0082; /* Darker purple */
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form h2 {
+            margin-bottom: 1em;
+            color: #6a0dad;
+        }
+        form label {
+            display: block;
+            margin-bottom: 0.5em;
+            color: #333;
+            text-align: left;
+        }
+        form input {
+            width: 100%;
+            padding: 0.8em;
+            margin-bottom: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        form button {
+            padding: 1em;
+            width: 100%;
+            background-color: #6a0dad;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        form button:hover {
+            background-color: #4b0082;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your App</h1>
+    </header>
+    <main>
+        <h2>Are you a Chef or a Customer?</h2>
+        <div class="choice">
+            <button onclick="chooseRole('chef')">Chef</button>
+            <button onclick="chooseRole('customer')">Customer</button>
+        </div>
+
+        <!-- Chef Sign Up Form -->
+        <div id="chefSignup" class="hidden">
+            <form>
+                <h2>Chef Sign Up</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="bestFood">Best Food:</label>
+                <input type="text" id="bestFood" name="bestFood" required>
+                <label for="expertFood">Food Expertise:</label>
+                <input type="text" id="expertFood" name="expertFood" required>
+                <label for="hourlyRate">Hourly Rate:</label>
+                <input type="number" id="hourlyRate" name="hourlyRate" required>
+                <label for="contactInfo">Contact Information:</label>
+                <input type="text" id="contactInfo" name="contactInfo" required>
+                <label for="cashApp">CashApp:</label>
+                <input type="text" id="cashApp" name="cashApp" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- Customer Find Chef Form -->
+        <div id="customerFindChef" class="hidden">
+            <h2>Find Your Chef</h2>
+            <!-- Add filter options here -->
+            <p>This section will display chefs based on your filters.</p>
+        </div>
+    </main>
+    <script>
+        function chooseRole(role) {
+            document.getElementById('chefSignup').classList.add('hidden');
+            document.getElementById('customerFindChef').classList.add('hidden');
+
+            if (role === 'chef') {
+                document.getElementById('chefSignup').classList.remove('hidden');
+            } else if (role === 'customer') {
+                document.getElementById('customerFindChef').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
+ 

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer - Find Your Chef</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f0f0f0; /* Light gray background */
+            font-family: 'Roboto', sans-serif; /* Modern font */
+        }
+
+        header {
+            background-color: #5c6bc0; /* Vibrant purple */
+            padding: 2em;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #fff; /* White text */
+            font-size: 3em; /* Larger font size */
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+        }
+
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+
+        .filter-section {
+            margin-bottom: 2em;
+        }
+
+        .filter-section h2 {
+            color: #5c6bc0; /* Vibrant purple */
+            font-size: 1.5em; /* Larger font size */
+            margin-bottom: 1em;
+        }
+
+        .filter-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .filter-section label {
+            color: #5c6bc0; /* Vibrant purple */
+            margin-bottom: 0.5em;
+        }
+
+        .filter-section input {
+            padding: 1em;
+            width: 100%;
+            max-width: 300px;
+            background-color: #fff; /* White background */
+            color: #5c6bc0; /* Vibrant purple text */
+            border: 1px solid #5c6bc0; /* Vibrant purple border */
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 1em;
+        }
+
+        .filter-section button {
+            padding: 1em;
+            background-color: #5c6bc0; /* Vibrant purple */
+            color: #fff; /* White text */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-section button:hover {
+            background-color: #3949ab; /* Darker purple on hover */
+        }
+
+        .chef-card {
+            background-color: #fff; /* White background */
+            color: #5c6bc0; /* Vibrant purple text */
+            border-radius: 10px;
+            padding: 1em;
+            margin-bottom: 2em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .chef-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1em;
+        }
+
+        .chef-card h3 {
+            margin: 0;
+            font-size: 1.5em; /* Larger font size */
+        }
+
+        .chef-card p {
+            margin-bottom: 0.5em;
+        }
+
+        .chef-card button {
+            padding: 0.8em;
+            background-color: #5c6bc0; /* Vibrant purple */
+            color: #fff; /* White text */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .chef-card button:hover {
+            background-color: #3949ab; /* Darker purple on hover */
+        }
+
+        #rateChef, #leaderboard {
+            margin-top: 2em;
+        }
+
+        #rateChef, #leaderboard p {
+            margin-bottom: 0.5em;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .animated {
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Find Your Chef</h1>
+    </header>
+    <main>
+        <div class="filter-section">
+            <h2>Filter Chefs</h2>
+            <form id="filterForm">
+                <label for="foodType">Food Type:</label>
+                <input type="text" id="foodType" name="foodType" placeholder="e.g., Italian, Sushi, BBQ">
+                <label for="hourlyRate">Hourly Rate:</label>
+                <input type="number" id="hourlyRate" name="hourlyRate" placeholder="e.g., 20">
+                <button type="button" onclick="applyFilter()">Apply Filter</button>
+            </form>
+        </div>
+        
+        <div id="chefList" class="animated fadeIn">
+            <!-- Chef profiles will be dynamically loaded here -->
+            <div class="chef-card">
+                <img src="chef_avatar.jpg" alt="Chef Avatar">
+                <h3>Chef Name</h3>
+                <p>Specialties: Italian, French</p>
+                <p>Hourly Rate: $25</p>
+                <button onclick="rateChef()">Rate Chef</button>
+            </div>
+            <!-- Repeat chef cards for multiple chefs -->
+        </div>
+
+        <div id="rateChef" class="hidden animated fadeIn">
+            <h2>Rate Your Chef</h2>
+            <select id="starRating">
+                <option value="1">1 Star</option>
+                <option value="8
+                
